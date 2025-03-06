@@ -14,12 +14,15 @@
         crossorigin="anonymous" referrerpolicy="no-referrer" />
 </head>
 
-<body class="bg-gray-50">
+<body class="bg-linear-to-r/decreasing from-sky-950 to-teal-500">
 
 
     {{-- Content of your blogs --}}
-    <div class="container mx-auto px-12 py-24 md:px-24">
-        @yield('content')
+    <div class="flex justify-center">
+        <div
+            class="md:mx-29 container mx-auto flex w-auto flex-col items-center justify-center bg-gray-50 bg-opacity-50 px-12 py-24">
+            @yield('content')
+        </div>
     </div>
 
     {{-- Footer components --}}

@@ -3,7 +3,7 @@
 {{-- Navbar --}}
 @include('layouts.navbar', ['categories' => $categories])
 
-<div class="container mx-auto px-12 py-24 md:px-24">
+<div class="md:mx-29 container mx-auto w-auto bg-gray-50 bg-opacity-50 px-12 py-24">
 
     <h1 class="mb-6 text-3xl font-semibold">Posts in Category: {{ $category->name }}</h1>
     <p class="text-lg text-gray-700">{{ $category->description }}</p>
@@ -17,7 +17,7 @@
             @foreach ($posts as $post)
                 <div class="rounded-lg bg-white p-4 shadow transition-shadow duration-300 hover:shadow-lg">
                     <!-- Gambar pos dengan ukuran seragam -->
-                    <img src="{{ $post->image }}" alt="{{ $post->title }}"
+                    <img loading="lazy" src="{{ $post->image }}" alt="{{ $post->title }}"
                         class="mb-4 h-48 w-full transform rounded-lg object-cover transition-transform duration-300 hover:scale-105">
                     <!-- Nama kategori -->
                     <p class="mt-1 text-xs text-sky-500">Category: {{ $post->category->name }}</p>

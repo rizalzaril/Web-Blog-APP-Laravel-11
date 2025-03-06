@@ -9,12 +9,11 @@
 {{-- Hero components (only show on non-detail pages) --}}
 @unless (Route::is('posts.show'))
     <!-- Check if not on the post detail page -->
-    <div class="sm:mx-24 md:mx-24 lg:mx-32">
+    <div class="lg:mx-29 md:mx-29 sm:mx-auto">
         @include('layouts.hero')
     </div>
 @endunless
 @section('content')
-
 
     <h1 class="text-3xl font-bold">Welcome to My Blog</h1>
     <p class="mt-4">Tempat berbagi informasi menarik.</p>

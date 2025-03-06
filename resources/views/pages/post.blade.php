@@ -11,7 +11,7 @@
 
     @if ($post->image)
         <div class="mt-4">
-            <img src="{{ $post->image }}" alt="{{ $post->title }}" class="mx-auto h-auto w-full max-w-lg">
+            <img loading="lazy" src="{{ $post->image }}" alt="{{ $post->title }}" class="mx-auto h-auto w-full max-w-lg">
         </div>
     @endif
 

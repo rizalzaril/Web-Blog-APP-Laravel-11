@@ -1,6 +1,6 @@
 <div class="rounded-lg bg-white p-4 shadow transition-shadow duration-300 hover:shadow-lg">
     <!-- Gambar pos dengan ukuran seragam -->
-    <img src="{{ $post->image }}" alt="{{ $post->title }}"
+    <img loading="lazy" src="{{ $post->image }}" alt="{{ $post->title }}"
         class="mb-4 h-48 w-full transform rounded-lg object-cover transition-transform duration-300 hover:scale-105">
     <!-- Nama kategori -->
     <p class="mt-1 text-sm text-gray-500">Category: {{ $post->category->name }}</p>

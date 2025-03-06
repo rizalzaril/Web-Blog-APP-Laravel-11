@@ -1,5 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Quicksand:wght@300..700&display=swap");
+
 @import "tailwindcss";
 @source "../views";
+
+* {
+    font-family: "Quicksand", sans-serif;
+}
 
 /* Mengatur font, ukuran dan line-height pada konten */
 .rich-content {
