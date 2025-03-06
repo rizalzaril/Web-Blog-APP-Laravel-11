@@ -20,10 +20,11 @@
                     <img src="{{ $post->image }}" alt="{{ $post->title }}"
                         class="mb-4 h-48 w-full transform rounded-lg object-cover transition-transform duration-300 hover:scale-105">
                     <!-- Nama kategori -->
-                    <p class="mt-1 text-sm text-gray-500">Category: {{ $post->category->name }}</p>
+                    <p class="mt-1 text-xs text-sky-500">Category: {{ $post->category->name }}</p>
 
                     <!-- Judul pos -->
-                    <h2 class="text-xl font-bold transition-colors duration-300 hover:text-blue-500">{{ $post->title }}
+                    <h2 class="mt-2 text-xl font-bold transition-colors duration-300 hover:text-blue-500">
+                        {{ $post->title }}
                     </h2>
 
                     <!-- Konten pos (dipangkas) -->

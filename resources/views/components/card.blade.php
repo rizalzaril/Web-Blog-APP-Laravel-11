@@ -10,7 +10,8 @@
 
 
     <!-- Konten pos (dipangkas) -->
-    <p class="mt-2 text-gray-600 transition-all duration-300 hover:text-gray-800">{{ Str::limit($post->content, 100) }}
+    <p class="mt-2 text-gray-600 transition-all duration-300 hover:text-gray-800">
+        {!! Str::limit(strip_tags($post->content), 100) !!}
     </p>
 
     <!-- Tautan untuk membaca lebih lanjut -->
