@@ -16,8 +16,9 @@ use Illuminate\Database\Eloquent\SoftDeletingScope;
 class CategoryResource extends Resource
 {
     protected static ?string $model = Category::class;
+    protected static ?string $navigationGroup = 'Manage';
+    protected static ?string $navigationIcon = 'heroicon-o-folder';
 
-    protected static ?string $navigationIcon = 'heroicon-o-rectangle-stack';
 
     public static function form(Form $form): Form
     {
@@ -67,5 +68,22 @@ class CategoryResource extends Resource
             'create' => Pages\CreateCategory::route('/create'),
             'edit' => Pages\EditCategory::route('/{record}/edit'),
         ];
+    }
+
+
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return static::getModel()::count() < 10 ? 'danger' : 'success';
+    }
+
+
+    public static function getNavigationBadgeTooltip(): ?string
+    {
+        return 'The count of category';
     }
 }

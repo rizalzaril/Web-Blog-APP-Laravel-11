@@ -3,8 +3,8 @@
 {{-- Navbar --}}
 @include('layouts.navbar', ['categories' => $categories])
 
-<div class="md:mx-29 container mx-auto w-auto bg-gray-50 bg-opacity-50 px-12 py-24">
 
+@section('content')
     <h1 class="mb-6 text-3xl font-semibold">Posts in Category: {{ $category->name }}</h1>
     <p class="text-lg text-gray-700">{{ $category->description }}</p>
 
@@ -15,6 +15,7 @@
     @else
         <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
             @foreach ($posts as $post)
+                {{-- cards --}}
                 <div class="rounded-lg bg-white p-4 shadow transition-shadow duration-300 hover:shadow-lg">
                     <!-- Gambar pos dengan ukuran seragam -->
                     <img loading="lazy" src="{{ $post->image }}" alt="{{ $post->title }}"
@@ -29,7 +30,7 @@
 
                     <!-- Konten pos (dipangkas) -->
                     <p class="mt-2 text-gray-600 transition-all duration-300 hover:text-gray-800">
-                        {{ Str::limit($post->content, 100) }}
+                        {!! Str::limit(strip_tags($post->content), 100) !!}
                     </p>
 
                     <!-- Tautan untuk membaca lebih lanjut -->
@@ -37,7 +38,10 @@
                         class="mt-2 inline-block text-blue-500 transition-all duration-300 hover:text-blue-700">Read
                         more</a>
                 </div>
+
+                {{-- end cards --}}
             @endforeach
         </div>
     @endif
-</div>
+
+@endsection

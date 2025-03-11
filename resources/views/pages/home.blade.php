@@ -10,17 +10,17 @@
 @unless (Route::is('posts.show'))
     <!-- Check if not on the post detail page -->
     <div class="lg:mx-29 md:mx-29 sm:mx-auto">
-        @include('layouts.hero')
+        @include('layouts.hero', ['hero' => $hero])
     </div>
 @endunless
 @section('content')
 
-    <h1 class="text-3xl font-bold">Welcome to My Blog</h1>
-    <p class="mt-4">Tempat berbagi informasi menarik.</p>
+    <h1 class="animate-fadeInUp text-3xl font-bold">Welcome to My Blog</h1>
+    <p class="animate-fadeInUp mt-4">Tempat berbagi informasi menarik.</p>
 
     {{-- Daftar postingan terbaru --}}
-    <h4 class="mt-5 text-lg font-semibold">Latest Post</h4>
-    <div class="mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
+    <h4 class="animate-fadeInUp mt-5 text-lg font-semibold">Latest Post</h4>
+    <div class="animate-fadeInUp mt-6 grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-2 lg:grid-cols-3">
         @foreach ($posts as $post)
             @include('components.card', ['post' => $post])
         @endforeach

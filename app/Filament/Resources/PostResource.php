@@ -18,10 +18,12 @@ use Filament\Forms\Components\RichEditor;
 class PostResource extends Resource
 {
     protected static ?string $model = Post::class;
-
     protected static ?string $navigationIcon = 'heroicon-o-document-text';
 
 
+
+
+    // Form input post the blog
     public static function form(Form $form): Form
     {
         return $form
@@ -73,7 +75,7 @@ class PostResource extends Resource
         return $table
             ->columns([
                 // Pastikan kolom ditambahkan dengan benar
-                Tables\Columns\TextColumn::make('title')->sortable()->searchable(),
+                Tables\Columns\TextColumn::make('title')->sortable()->searchable()->limit(30),
                 Tables\Columns\TextColumn::make('content')->limit(50),
             ])
             ->filters([
@@ -103,5 +105,21 @@ class PostResource extends Resource
             'create' => Pages\CreatePost::route('/create'),
             'edit' => Pages\EditPost::route('/{record}/edit'),
         ];
+    }
+
+    // Badge count item
+    public static function getNavigationBadge(): ?string
+    {
+        return static::getModel()::count();
+    }
+
+    public static function getNavigationBadgeColor(): ?string
+    {
+        return static::getModel()::count() < 10 ? 'danger' : 'warning';
+    }
+
+    public static function getNavigationBadgeTooltip(): ?string
+    {
+        return 'The count of post';
     }
 }

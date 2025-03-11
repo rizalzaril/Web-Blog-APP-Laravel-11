@@ -6,12 +6,13 @@
 @include('layouts.navbar', ['categories' => $categories])
 
 @section('content')
-    <h1 class="text-4xl font-bold">{{ $post->title }}</h1>
-    <p class="mt-2 text-gray-600">{{ $post->created_at->format('d M Y') }}</p>
+    <h1 class="text-4xl font-bold">{!! $post->title !!}</h1>
+    <p class="mt-2 text-gray-600">{!! $post->created_at->format('d M Y') !!}</p>
 
     @if ($post->image)
         <div class="mt-4">
-            <img loading="lazy" src="{{ $post->image }}" alt="{{ $post->title }}" class="mx-auto h-auto w-full max-w-lg">
+            <img loading="lazy" src="{!! $post->image !!}" alt="{!! $post->title !!}"
+                class="mx-auto h-auto w-full max-w-lg">
         </div>
     @endif
 

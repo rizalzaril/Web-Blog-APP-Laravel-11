@@ -15,8 +15,9 @@ class PostController extends Controller
     {
         $posts = Post::latest()->paginate(6); // Ambil semua post terbaru, dengan pagination 6 per halaman
         $categories = Category::all();
+        $hero =  Post::latest()->take(1)->get();
 
-        return view('pages.home', compact('posts', 'categories'));
+        return view('pages.home', compact('posts', 'categories', 'hero'));
     }
 
 
